@@ -1,0 +1,192 @@
+function formValidation(){
+
+  
+    var trueCounter = 0;
+
+    if(NameValidation1()) trueCounter++;
+    if(NameValidation2()) trueCounter++;
+    if(phoneValid()) trueCounter++;
+    if(EducValidation()) trueCounter++;
+    if(passValidation()) trueCounter++;
+
+    if(trueCounter == 5){
+        return true;
+    }else{
+        return false;
+    }
+
+};
+
+function NameValidation1(){
+    var Char = 0;
+    var Symb = 0;
+    var elem = document.signup.first_name.value.trim();
+    elem = elem.toUpperCase();
+    for(var i=0; i<elem.length; i++){
+        if (elem.charAt(i) >= "A" && elem.charAt(i) <= "Z" ) 
+            Char ++; 
+        else if (elem[i] == "-" ||  elem[i] == "'")
+            Symb ++;
+    }
+    if((Char+Symb) != elem.length || elem.length == 0 || Char == 0) {
+            document.getElementById("first_name_err").innerHTML = 'Please enter a name, only alphabetic characters, apostrophe, hyphen';
+            document.signup.first_name.focus();
+            return false;
+    }
+        else{
+        document.getElementById("first_name_err").innerHTML = '';
+        return true;
+        }
+};
+
+function NameValidation2(){
+    var Char = 0;
+    var Symb = 0;
+    var elem = document.signup.last_name.value.trim();
+    elem = elem.toUpperCase();
+    for(var i=0; i<elem.length; i++){
+        if (elem.charAt(i) > "A" && elem.charAt(i) < "Z" ) 
+             Char ++; 
+        else if (elem[i] == "-" ||  elem[i] == "'")
+            Symb ++;
+    }
+    if((Char+Symb) != elem.length || elem.length == 0 || Char == 0) {
+        document.getElementById("last_name_err").innerHTML = 'Please enter a name, only alphabetic characters, apostrophe, hyphen';
+        document.signup.last_name.focus();
+        return false;
+    }
+    else {
+        document.getElementById("last_name_err").innerHTML = '';
+        return true;
+    }
+};
+
+function phoneValid(){
+    var Val = true;
+    var n = 0;
+    var m = 0;
+    var sum = 0;
+    var sum2 = 0;
+    var elem =  document.signup.phone_number.value.trim();
+       for(var i=0; i<elem.length; i++){
+            if((elem.charAt(i) < "0" || elem.charAt(i) > "9") && elem[i] != '-')
+            {
+            document.getElementById("phone_number_err").innerHTML = 'Please enter a phone number, numbers and character "-" only';
+            document.signup.phone_number.focus();
+            Val = false;
+            break;
+                }
+                if(elem.charAt(i) >= "0" && elem.charAt(i) <= "9")
+                {
+                 sum += elem[i];
+                 n++;
+                 if(n==3 && sum == 0) {
+                    document.getElementById("phone_number_err").innerHTML = "The area code can't be all zero's";
+                    document.signup.phone_number.focus();
+                    Val = false;
+                    break;
+                    }
+              }
+              if(i>2 && elem[i] != '-'){
+                  sum2 += elem[i];
+                    m++;
+                    if(m==7 && sum2 == 0){
+                    document.getElementById("phone_number_err").innerHTML = "The actual phone number can't be all zero's";
+                    document.signup.phone_number.focus();
+                     Val = false;
+                    }
+              }
+       }
+       if(Val == true)
+            document.getElementById("phone_number_err").innerHTML = "";
+       return Val;
+};
+
+function EducValidation(){
+    var radio = document.getElementsByName('1');
+    var checked = false;  
+    for (var i = 0; i < radio.length; i++)  {
+        if (radio[i].checked)  {     
+            checked = true;
+        }
+    } 
+    if(checked == false){
+    document.getElementById("Education_Status_err").innerHTML = "Please, pick at least 1 option";
+    document.signup.Education_Status.focus();
+    }
+    if(checked == true)
+        document.getElementById("Education_Status_err").innerHTML = "";
+    return checked;
+};
+
+/*function EducValidation(){
+    var radio = document.getElementsByName('1');
+    var checked = false;  
+    for (var i = 0; i < Education_Status.length; i++)  {
+        if (document.signup.Education_Status[i].checked)  {     
+            checked = true;
+        }
+    } 
+    if(checked == false){
+    document.getElementById("Education_Status_err").innerHTML = "Please, pick at least 1 option";
+    document.signup.Education_Status.focus();
+    }
+    if(checked == true)
+        document.getElementById("Education_Status_err").innerHTML = "";
+    return checked;
+};*/
+
+function passValidation(){
+    var pass1 = document.signup.password.value.trim();
+    var pass2 = document.signup.password2.value.trim();
+    var num = 0;
+    var char = 0;
+    var Upper = 0;
+    var Lower = 0;
+    valid = true;
+    for(var i = 0; i < pass1.length; i++){
+        char ++;
+        if(pass1.charAt(i) <=  "Z" && pass1.charAt(i) >= "A")
+            Upper ++;
+        else if (pass1.charAt(i) <=  "z" && pass1.charAt(i) >= "a")
+            Lower ++;
+        else if(pass1.charAt(i) <=  "9" && pass1.charAt(i) >= "1")
+            num++;
+    }
+    if(char < 8){
+        //alert("Password must be at least 8 characters long");
+        document.getElementById("password_err").innerHTML = "Password must be at least 8 characters long";
+        document.signup.password.focus();
+        valid = false;
+    }
+    else if (Upper == 0){
+       // alert("Password must have at least 1 uppercase character");
+        document.getElementById("password_err").innerHTML = "Password must have at least 1 uppercase character";
+        document.signup.password.focus();
+        valid = false;
+    }
+     else if (Lower == 0){
+        //alert("Password must have at least 1 lowercase character");
+        document.getElementById("password_err").innerHTML = "Password must have at least 1 lowercase character";
+        document.signup.password.focus();
+        valid = false;
+     }
+     else if (num == 0){
+        //alert("Password must have at least 1 number");
+        document.getElementById("password_err").innerHTML = "Password must have at least 1 number";
+        document.signup.password.focus();
+        valid = false;
+     }
+     else if(pass1 != pass2)
+     {
+         //alert("Passwords must be identical");
+         document.getElementById("password_err").innerHTML = "Passwords must be identical";
+         document.signup.password.focus();
+         valid = false;
+     }
+     if(valid == true)
+        document.getElementById("password_err").innerHTML = "";
+     return valid;
+};
+
+

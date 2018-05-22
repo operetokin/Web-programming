@@ -1,0 +1,150 @@
+ html
+{
+    background: lightgrey;
+    height: 1650px;
+}
+.title
+{
+    font-size: 20px;
+}
+.sections
+{
+    margin: 0 auto;
+    width: 600px;
+    border: 1px solid darkgray;
+    background: #f2f2f2;
+    text-align: center; 
+}
+h1
+{
+    font-family: arial;
+    color: white; 
+    background-color:red;
+    padding-left: 10px;
+    padding-top: 10px;
+    border-top-left-radius: 0.35em;
+    border-top-right-radius: 0.35em;
+}
+h1 span{
+    color: white;
+    font-size: 30%;
+}
+h3
+{
+    padding: 10px;
+    font-weight: bold;
+    text-shadow:1px 1px gray;
+}
+h4{
+    background: lightgrey;
+}
+
+h5{
+    font-size: 80%;
+    color: red;
+    padding: 10px;
+    padding-bottom: 20px;
+  }
+.sectionTitle
+{
+    
+    font-family: arial;
+    text-align: left;
+    background: #bfbfbf;
+    margin: 0px 0px 15px;
+    text-indent: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+body
+{
+    margin: 0 auto; 
+    background: white;
+    width: 650px;
+    height: 1450px;
+    border-top-left-radius: 1.50em;
+    border-top-right-radius: 1.50em;
+    border-bottom-right-radius: 0.35em;
+    border-bottom-left-radius: 0.35em;
+    box-shadow: 3px 3px 5px 0px rgba(20, 20, 20, 0.5);
+}
+label 
+{
+    display: inline-block;
+    width: 150px;
+    text-align: right;
+    margin: 15px 0px 4px -50px;
+}
+span
+{
+    color: red;
+}
+
+#Education_Status
+{
+  
+    background-color:white;
+    width: 250px;
+    height: 100px; 
+    margin: 0px 0px 0px 210px;
+    border: 1px solid black;
+    text-align:left; 
+    box-shadow: 3px 3px 5px 0px rgba(20, 20, 20, 0.5);
+}
+input, select
+{
+    
+    display: inline-block;
+   box-shadow: 3px 3px 5px 0px rgba(20, 20, 20, 0.5);
+}
+textarea
+{
+    margin-top: 10px;
+    height: 100px;
+    width: 250px;
+    border-radius: 0.35em;
+    box-shadow: 3px 3px 5px 0px rgba(20, 20, 20, 0.5);
+}
+
+#email, #password, #password2, #first_name, #last_name, #phone_number, #Address, #City,
+#Province, #Country, #School, #Program, #Education_Level, #Graduation_Date, #Employer,
+#Job_Title, #Worked_year
+{
+    display: inline-block;
+    width: 250px;
+    border-radius: 0.35em;
+}
+
+#but1
+{ 
+    background: red;
+    color: white;
+    margin: 50px 0px 0px 300px;
+    border-radius: 0.50em;
+}
+
+#but2
+{
+    background: red;
+    color: white;  
+    margin: 50px 0px 0px 20px;
+    border-radius: 0.50em;
+}
+ 
+
+.vertical{
+    vertical-align: top;
+}
+
+input:focus, textarea:focus {
+    border-color: #000;
+}
+        
+#password_err, #first_name_err, #last_name_err, #phone_number_err, #Education_Status_err
+{
+    font-family: arial;
+    color: red;
+    font-size: 50%;
+    text-align: left;
+    margin: 0px 0px 0px 225px;
+}

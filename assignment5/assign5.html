@@ -1,0 +1,161 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Sign up</title>
+        <link rel="stylesheet" href="css/assign5.css" />
+        <script src="js/assign5.js"></script>
+</head>
+<body>
+    <header>
+        <h1>JobSearch<span>.com</span></h1>
+        <h3>Create Your Account</h3>
+    </header>
+    <h5>* Required information</h5>
+     <form name="signup" id="signup" action="https://httpbin.org/post" method="post" onsubmit="return formValidation();">
+<div class="sections">
+   <header class="sectionTitle">Basic Information</header>
+        <label for ="email">Email <span>*</span></label>
+        <input id="email"          name="email"        type="email"    required autofocus="autofocus"/> 
+        <br>
+        
+        <label for ="password">Password <span>*</span></label> 
+        <input id="password"       name="password"     type="password" required /> 
+        <br>
+        
+        <div id="password_err"> 
+        </div>
+
+        <label for ="password2">Retype Password <span>*</span></label>
+        <input id="password2"      name="password2"    type="password" required onchange="passValidation()"/> 
+        <br>
+        
+        <label for ="first_name">First Name <span>*</span></label> 
+        <input id="first_name"     name="first_name"   type="text"     required onchange="NameValidation1()"/> 
+        <br> 
+        <div id="first_name_err"> 
+        </div>
+
+        <label for ="last_name">Last Name <span>*</span></label>
+        <input id="last_name"      name="last_name"    type="text"     required onchange="NameValidation2()"/> 
+        <br> 
+        <div id="last_name_err"> 
+        </div>
+
+        <label for ="phone_number">Phone Number <span>*</span></label>
+        <input id="phone_number"   name="phone_number" type="tel"      required placeholder="999-999-9999" onchange="phoneValid()" /> 
+        <br>
+        <div id="phone_number_err"> 
+        </div>
+
+        <label for ="Address">Address <span>*</span></label>
+        <input id="Address"        name="Address"      type="text"     required/>  
+        <br>
+	   
+        <label for ="City">City <span>*</span></label>
+        <input id="City"           name="City"         type="text"     required /> 
+        <br>
+       
+        <label for ="Province">Province <span>*</span></label>
+    
+        <select id="Province"       name="Province"      required > 
+            <option value="" selected> -select-  </option>
+            <option value='ON'> Ontario </option>
+            <option value='QC'> Quebec </option>
+            <option value='NS'> Nova Scotia </option>
+            <option value='NB'> New Brunswick </option>
+            <option value='MB'> Manitoba </option>
+            <option value='BC'> British Columbia </option>
+            <option value='PE'> Prince Edward Island </option>
+            <option value='SK'> Saskatchewan </option>
+            <option value='AB'> Alberta </option>
+            <option value='NL'> Newfoundland and Labrador </option>
+            <option value='NT'> Northwest Territories </option>
+            <option value='YT'> Yukon </option>
+            <option value='NU'> Nunavut </option>
+        </select>
+        <br>
+
+        <label for ="Country">Country <span>*</span></label> 
+        <input id="Country"        name="Country"      type="text"     required list="Countries"/> 
+        <br>
+         <datalist id='Countries'>
+             <option value = "The United States">The United States</option>
+             <option value = "Canada">Canada</option>
+             <option value = "Ukraine">Ukraine</option>
+             <option value = "Cuba">Cuba</option>
+             <option value = "Poland">Poland</option>
+         </datalist>
+</div>
+<br>
+
+    <div class="sections">
+      <header class="sectionTitle"> Education </header>
+        <label for ="School">School <span>*</span></label> 
+        <input id="School"        name="School"      type="text"     required/>  <br>
+   
+        <label for ="Program">Program <span>*</span></label>
+        <input id="Program"        name="Program"      type="text"     required/>  <br>
+   
+        <label for ="Education_Level">Education Level <span>*</span></label>
+      
+        <select id="Education_Level"       name="Education Level"       required > 
+            <option value="" selected> -select-  </option>
+            <option> Technical Diploma </option>
+            <option> College Diploma </option>
+            <option> Bachelor's Degree </option>
+            <option> Master's Degree </option>
+            <option> Others </option>
+        </select>
+        <br>
+        <div>
+        <fieldset id="Education_Status" onchange="EducValidation()">
+            <legend>Education Status</legend>
+            <input type='radio' name= '1'  value ='Graduated'/> Graduated <br/>
+            <input type='radio' name= '1'  value = 'Current Enrolled'/> Current Enrolled <br/> 
+            <input type='radio' name= '1'  value ='Did not Graduate'/> Did not Graduate <br/>
+        </fieldset>
+        </div>
+             <div id="Education_Status_err"> </div>
+        <br>
+
+      <label for ="Graduation_Date">Graduation Date <span>*</span></label>
+      <input id="Graduation_Date"        name="Graduation_Date"      type="text"     required/>  <br />
+	</div>
+    <br> 
+    
+    <div class="sections">
+          <header class="sectionTitle">Work Experience:</header>
+
+      <label for ="Employer">Employer:</label> 
+      <input id="Employer"     name="Employer"   type="text" /> <br /> 
+     
+      <label for ="Job_Title">Job Title:</label>
+      <input id="Job_Title"     name="Job Title"   type="text" /> <br/> 
+      
+      <label for ="Job_Duty" class="vertical">Job Duty:</label>
+      <textarea id="Job_Duty" name="Job Duty" > </textarea> <br/>
+
+      <label for ="Worked_year">Worked Year:</label>
+      <input id="Worked_year" type="number"      name="Worked Year" min="1" max="20" /> <br />
+     </div>
+    <br>
+      <div class="sections">
+             <header class="sectionTitle">Attachments</header>
+                <label for ="Attachments">Attachments:</label>
+                <input type="file" id="Attachments" name="Attachments" multiple>
+      </div>
+   
+ <button id="but1" type="reset" value = "reset"> Reset </button>
+ <button id="but2" type="submit" value= "Submit"> Apply </button>
+   
+	
+  </form>
+  
+</body>
+
+</html>
+
+
+      
+   

@@ -1,0 +1,86 @@
+.main-container { /* Select all elements with class “main-container” and adjust it’s size and margin*/
+    max-width: 960px;
+    margin: 0 auto 0 auto;
+}
+
+.main-container nav {  /* Select all <nav> elements that are a child of an element with class “main-container” and adjust it’s size and position */
+    width: 30%;
+    float: left;
+}
+
+.main-container .main { /* Select all elements with class <main> that are a child of an element with class <main-container> and adjust it’s size and position */
+    width: 70%;
+    float: left;
+}
+
+.main-container header {  /* Select all header elements that are a child of an element with class “main-container” and adjust it’s margin-bottom, border-bottom, padding and background-color  */
+    padding: 10px;
+    background-color: #eeeeee;
+    border-bottom: 1px solid #cccccc;
+    margin-bottom: 30px; 
+}
+
+.main-container header h1 {  /* Select all h1 elements that are a child of an element header that are a child of an element with class “main-container” and adjust it’s size, font-size, margin-top, position */
+    width: 70%;
+    font-size: 24px;
+    float: right;
+    text-align: right;
+    margin-top: 10px;
+}
+
+.main-container footer {    /* Select all footer elements that are a child of an element with class “main-container” and adjust it’s size, padding, background-color, border-top, font-size and position */
+    clear: both;
+    padding: 20px 10px 20px 10px;
+    background-color: #eeeeee;
+    border-top: 1px solid  #cccccc;
+    font-size: 13px;
+}
+
+#logo { /* Select all elements with id <logo> and adjust it’s size, font-size, font-weight */
+    width: 30%;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+#logo img {     /* Select all <img> elements that are a child of an element with id <logo> and adjust it’s size and position */
+    width: 94px;
+    vertical-align: middle;
+}
+
+nav ul{ /* Select all <ul> elements that are a child of an element nav and adjust it’s style */
+    list-style-type: none;
+}
+
+nav ul a{ /* Select all <a> elements that are a child of an element ul that are a child of an element nav and adjust it’s padding, text-decoration, position */
+    display: block;
+    text-decoration: none;
+    padding: 5px;
+}
+
+div.province {  /* Select all elements div with class <province> and adjust it’s size, margin, haight and position */
+    width: 30%;
+    float: left;
+    margin: 8px;
+    height: 310px;
+
+}
+
+div.province .description {     /* Select all elements with class <description> that are a child of an element div with class <province> and adjust it’s size, margins and add scrols */
+     max-height: 165px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin: 8px 0 8px 0;
+}
+
+div.province a {    /* Select all elements <a> that are a child of an element div with class <province> and adjust it’s position, paddings, color, background color, text-decoration */
+   display: block;
+   text-align: center;
+   background-color: #555555;
+   color: #eeeeee;
+   text-decoration: none; 
+   padding: 5px;
+}
+
+img.flag {      /* Select all elements <img> with class <flag> and adjust it’s size */
+    width: 100%;
+}
